@@ -51,9 +51,11 @@ def check_pre_installtion():
     for names, locations in yaml_locations.items():
         if not os.path.exists(locations):
             print Colors.FAIL+"{} not found. Aboring Configuration.".format(locations)+Colors.ENDC
+            exit(1)
     for names, locations in js_locations.items():
         if not os.path.exists(locations):
             print Colors.FAIL+"{} not found. Aboring Configuration.".format(locations)+Colors.ENDC
+            exit(1)
     print Colors.OKBLUE+"+ All config files available....[ OK ]"+Colors.OKBLUE
 
 def create_backup_file(file_location):
@@ -139,7 +141,7 @@ def install_from_git():
     print Colors.HEADER+"\n**** Installing Spinnaker From GIT Repo ****"+Colors.ENDC
     #Step-1
     os.system("git clone https://github.com/spinnaker/spinnaker.git /opt/spinnaker")
-    os.system("sh /opt/spinnaker/InstallSpinnaker.sh")
+    os.system("bash /opt/spinnaker/InstallSpinnaker.sh")
     check_pre_installtion()
     #Step-2
     createAWSCerd()
