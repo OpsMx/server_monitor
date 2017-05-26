@@ -90,7 +90,7 @@ def createAWSCerd():
     with open(aws_credential_path, 'w') as configfile:
         config.write(configfile)
     print Colors.OKBLUE+"+ AWS credentials file created.{}".format(aws_credential_path)+Colors.ENDC
-    with open(aws_credential_path2) as f:
+    with open(aws_credential_path2,'w') as configfile:
         config.write(configfile)
     print Colors.OKBLUE+"+ AWS credentials file created.{}".format(aws_credential_path2)+Colors.ENDC
 
