@@ -47,7 +47,10 @@ updates={"rosco_configdir" : "/opt/rosco/config/packer",
          "jenikins_baseURL" : "http://172.9.239.142:8080",
          "defaultRegion" : "${SPINNAKER_AWS_DEFAULT_REGION:us-west-2}",
          "Credentials-name" : "GopinathRebala",
-         "defaultIAMRole" : "BaseIAMRole"
+         "defaultIAMRole" : "BaseIAMRole",
+         "jenkins_username" : "admin123",
+         "jenkins_password" : "networks123",
+         "jenkins_name" : "Edge10"
          }
 #--------------------------END OF CONFIG SECTION--------------------------
 
@@ -147,6 +150,9 @@ def MakeConfigurations():
 
     config=read_yaml(yaml_locations['spinnaker-local'])
     config['services']['jenkins']['defaultMaster']['baseUrl']=updates['jenikins_baseURL']
+    config['services']['jenkins']['defaultMaster']['name']=updates["jenkins_name"]
+    config['services']['jenkins']['defaultMaster']['username']=updates["jenkins_username"]
+    config['services']['jenkins']['defaultMaster']['password']=updates["jenkins_password"]
     config['services']['jenkins']['enabled']=True
     config['services']['igor']['enabled']=True
     config['providers']['aws']['defaultIAMRole']=updates['defaultIAMRole']
