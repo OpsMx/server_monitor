@@ -94,7 +94,7 @@ def createAWSCerd():
         config.write(configfile)
     print Colors.OKBLUE+"+ AWS credentials file created.{}".format(aws_credential_path)+Colors.ENDC
     with open(aws_credential_path2,'w') as f:
-        config.write(configfile)
+        config.write(f)
     print Colors.OKBLUE+"+ AWS credentials file created.{}".format(aws_credential_path2)+Colors.ENDC
 
 def read_yaml(file_name):
