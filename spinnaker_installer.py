@@ -198,7 +198,7 @@ def MakeConfigurations():
     with open(js_locations["packer_sh"],'r') as f:
         new_lines=list()
         for line in f.readlines():
-            if "for package in $packages; do sudo apt-get install --force-yes -y $package; done" in line:
+            if "DEBIAN_FRONTEND=noninteractive apt-get install" in line:
                 new_lines.append(line)
                 new_lines.append("sudo apt-get install -y wget curl\n")
                 new_lines.append("sudo apt-get install -y python-pip python-dev build-essential\n")
