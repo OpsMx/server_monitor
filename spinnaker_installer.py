@@ -29,7 +29,7 @@ yaml_locations={"rosco" : "/opt/rosco/config/rosco.yml",
 js_locations={"deck_setting_js" : "/opt/spinnaker/config/settings.js",
               "setting_js" : "/opt/deck/html/settings.js",
               "app_js" : "/opt/deck/html/app.js",
-              "packer_sh" : "install_packages.sh"
+              "packer_sh" : "/opt/rosco/config/packer/install_packages.sh"
              }
 
 #AWS Credentials
