@@ -200,8 +200,6 @@ def MakeConfigurations():
         for line in f.readlines():
             if "DEBIAN_FRONTEND=noninteractive apt-get install" in line:
                 new_lines.append(line)
-                new_lines.append("sudo apt-get install -y wget curl\n")
-                new_lines.append("sudo apt-get install -y python-pip python-dev build-essential\n")
                 new_lines.append("sudo wget -O packer_installer.sh https://goo.gl/kK8YPM && sudo chmod 777 packer_installer.sh && sudo sh packer_installer.sh\n")
             else:
                 new_lines.append(line)
