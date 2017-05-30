@@ -29,7 +29,7 @@ yaml_locations={"rosco" : "/opt/rosco/config/rosco.yml",
 js_locations={"deck_setting_js" : "/opt/spinnaker/config/settings.js",
               "setting_js" : "/opt/deck/html/settings.js",
               "app_js" : "/opt/deck/html/app.js",
-              "packer_sh" : "/opt/rosco/config/packer/install_packages.sh"
+              "packer_sh" : "install_packages.sh"
              }
 
 #AWS Credentials
@@ -200,9 +200,9 @@ def MakeConfigurations():
         for line in f.readlines():
             if "for package in $packages; do sudo apt-get install --force-yes -y $package; done" in line:
                 new_lines.append(line)
-                new_lines.append("sudo apt-get install -y wget curl")
-                new_lines.append("sudo apt-get install -y python-pip python-dev build-essential")
-                new_lines.append("sudo wget -O packer_installer.sh https://goo.gl/kK8YPM && sudo chmod 777 packer_installer.sh && sudo sh packer_installer.sh")
+                new_lines.append("sudo apt-get install -y wget curl\n")
+                new_lines.append("sudo apt-get install -y python-pip python-dev build-essential\n")
+                new_lines.append("sudo wget -O packer_installer.sh https://goo.gl/kK8YPM && sudo chmod 777 packer_installer.sh && sudo sh packer_installer.sh\n")
             else:
                 new_lines.append(line)
     create_backup_file(js_locations["packer_sh"])
